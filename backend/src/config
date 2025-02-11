@@ -1,0 +1,21 @@
+// env.ts - Environment Validation
+import { z } from 'zod';
+
+const envSchema = z.object({
+  NODE_ENV: z.enum(['development', 'production', 'test']),
+  JWT_SECRET: z.string().min(32),
+  DATABASE_URL: z.string().url(),
+  AWS_ACCESS_KEY: z.string(),
+  AWS_SECRET_KEY: z.string(),
+  TWILIO_ACCOUNT_SID: z.string(),
+  TWILIO_AUTH_TOKEN: z.string(),
+  GOOGLE_VISION_KEY: z.string()
+});
+
+export const validateEnv = () => {
+  try {
+    return envSchema.parse(process.env);
+  } catch (error) {
+    throw new Error(`Environment validation failed: ${error}`);
+  }
+};
