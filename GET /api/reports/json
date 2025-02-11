@@ -1,0 +1,16 @@
+{
+  "page": 1,
+  "limit": 20,
+  "total": 145,
+  "results": [
+    {
+      "id": 123,
+      "title": "Suspicious Activity Report",
+      "verificationScore": 84.5,
+      "location": {
+        "division": "Dhaka",
+        "district": "Gulshan"
+      }
+    }
+  ]
+}
